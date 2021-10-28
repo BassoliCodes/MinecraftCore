@@ -23,6 +23,15 @@ public class ServerAndPlayersEvents implements Listener {
 
         event.setJoinMessage(null);
 
+        player.sendMessage(new String[]
+                {
+                        "",
+                        "    §lBEM VINDO AO SERVIDOR!",
+                        "",
+                        " &7Olá " + player.getName() + ", seja bem vindo ao nosso servidor.",
+                        ""
+                });
+
         if (CommandMaintence.maintenceStatus) {
             if (!player.hasPermission("core.manutencao")) {
                 player.kickPlayer("§cVocê não pode entrar com o servidor em manutenção!");
