@@ -29,6 +29,11 @@ Sistema de /site para mostrar o link do site.
 <br/>
 <img src="https://i.imgur.com/fUvSpGL.png" alt="Minecraft Server Status"/>
 
+Sistema de /online mostra os jogadores online.
+<br/>
+<img src="https://i.imgur.com/VopkM8a.png" alt="Minecraft Server Status"/><br/>
+<img src="https://i.imgur.com/fRdk1p7.png" alt="Minecraft Server Status"/>
+
 Em breve mais...
 
 🥰 Pronto! Projeto totalmente open-source se quiser alterar e baixar fique a vontade, mas sempre deixe os créditos!
