@@ -25,7 +25,7 @@ public class CommandMaintence {
 
                 maintenceStatus = true;
 
-                if (!allPlayers.hasPermission("minister.manutencao")) {
+                if (!allPlayers.hasPermission("core.manutencao")) {
                     allPlayers.kickPlayer("§cServidor entrou em manutenção, avisaremos a volta no discord.");
                 } else if (maintenceStatus) {
                     maintenceStatus = false;
