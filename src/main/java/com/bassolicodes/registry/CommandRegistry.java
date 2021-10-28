@@ -33,7 +33,9 @@ public class CommandRegistry {
                 new CommandTrash(),
                 new CommandProfile(),
                 new CommandOnline(),
-                new CommandRestart()
+                new CommandRestart(),
+                new CommandTeleport(),
+                new CommandTeleportHere()
         );
     }
 }

@@ -31,3 +31,5 @@ Message:
   Trash_Title: '&8Lixeira de %s.'
   Players_Online: '&aEstamos com &f%s &ajogadores online!'
   Just_You_Online: '&aApenas você online no servidor.'
+  Crashed_Player: '&aVocê crashou o minecraft de %s.'
+  Crashed_Player_Not_Online: '&cO jogador que você tentou crashar não está online.'
