@@ -18,9 +18,9 @@ public class CommandTeleport {
             target = CommandTarget.PLAYER
     )
     public void handleCommand(Context<CommandSender> context, Player target) {
-        val player = (Player) context.getSender();
 
         FileConfiguration config = MinecraftCore.getInstance().getConfig();
+        val player = (Player) context.getSender();
 
         if (target == player) {
             player.sendMessage(config.getString("Message.Teleport_To_Yourself").replace("&", "§"));

@@ -36,3 +36,4 @@ Message:
   Teleport_To_Yourself: '&cVocê não pode ir até si mesmo.'
   Teleport_Player_Offline: '&cEsse jogador não está online.'
   Teleported_To_Player: '&aVocê foi teleportado até %s, com sucesso!'
+  Teleported_To_You: '&aO jogador %s foi teleportado até você.'
