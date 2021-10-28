@@ -10,7 +10,8 @@ database:
     file: 'database/database.db'
 
 Restart:
-  Time: 120
+  Message_In_Time: '&a&lREINICIO: &fRestam &7%s &fsegundos para o server ser reinicado.'
+  Message_Restart_Now: '§a§lREINICIO: §fReiniciando o servídor.'
 
 Message:
   Gamemode_Change: '&aSeu modo de jogo foi alterado para %s!'

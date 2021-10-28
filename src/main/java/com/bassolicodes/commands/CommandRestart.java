@@ -14,11 +14,16 @@ import java.util.ArrayList;
 
 public class CommandRestart {
 
-    @Command(name = "reiniciar", permission = "core.restart", aliases = "restart")
+    @Command(
+            name = "reiniciar",
+            permission = "core.restart",
+            aliases = "restart"
+    )
     public void handleRestart(Context<CommandSender> context) {
 
         val player = context.getSender();
-         ArrayList<Player> restart = new ArrayList<Player>();
+        ArrayList<Player> restart = new ArrayList<Player>();
+        FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
         new BukkitRunnable() {
 
@@ -28,15 +33,15 @@ public class CommandRestart {
             public void run() {
                 tempo--;
                 if (tempo == 119) {
-                    Bukkit.broadcastMessage("§e§lREINICIO: §eRestam 120 segundos para o server ser reinicado.");
+                    Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_120_Seconds").replace("&", "§"), 120));
                     return;
                 }
                 if (tempo == 59) {
-                    Bukkit.broadcastMessage("§e§lREINICIO: §eRestam 60 segundos para o server ser reinicado.");
+                    Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_120_Seconds").replace("&", "§"), 60));
                     return;
                 }
                 if (tempo == 9) {
-                    Bukkit.broadcastMessage("§e§lREINICIO: §eRestam 10 segundos para o server ser reinicado.");
+                    Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 10));
                     return;
                 }
                 if (tempo == 1) {
@@ -44,7 +49,7 @@ public class CommandRestart {
                         restart.remove(on);
                     }
 
-                    Bukkit.broadcastMessage("§e§lREINICIO: §eReiniciando o servídor.");
+                    Bukkit.broadcastMessage(config.getString("Restart.Message_Restart_Now").replace("&", "§"));
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "restart");
                     return;
                 }
