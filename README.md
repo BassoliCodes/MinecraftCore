@@ -25,6 +25,10 @@ Sistema de /lixeira para eliminar itens indejados.
 <br/>
 <img src="https://i.imgur.com/gU4khTb.png" alt="Minecraft Server Status"/>
 
+Sistema de /site para mostrar o link do site.
+<br/>
+<img src="https://i.imgur.com/fUvSpGL.png" alt="Minecraft Server Status"/>
+
 Em breve mais...
 
 🥰 Pronto! Projeto totalmente open-source se quiser alterar e baixar fique a vontade, mas sempre deixe os créditos!
