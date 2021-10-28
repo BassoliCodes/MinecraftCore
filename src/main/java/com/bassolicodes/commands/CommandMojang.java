@@ -10,9 +10,6 @@ import org.shanerx.mojang.Mojang;
 
 public class CommandMojang {
 
-    Mojang mojang = new Mojang().connect();
-    private final TextLogger textLogger = new TextLogger();
-
     @Command(
             name = "mojang",
             permission = "core.mojang"
@@ -20,9 +17,9 @@ public class CommandMojang {
     public void handleClearChat(Context<CommandSender> context) {
         val player = (Player) context.getSender();
 
-        if (mojang.getStatus(Mojang.ServiceType.AUTHSERVER_MOJANG_COM) != Mojang.ServiceStatus.GREEN) {
-            textLogger.error("O Auth Server dos servidores Mojang não está disponível no momento.");
-            return;
-        }
+        player.sendMessage(new String[]{
+                "Olá!",
+                "Tudo bem"
+        });
     }
 }

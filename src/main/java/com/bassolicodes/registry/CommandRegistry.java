@@ -31,7 +31,8 @@ public class CommandRegistry {
                 new CommandMaintence(),
                 new CommandClearChat(),
                 new CommandTrash(),
-                new CommandProfile()
+                new CommandProfile(),
+                new CommandMojang()
         );
     }
 }

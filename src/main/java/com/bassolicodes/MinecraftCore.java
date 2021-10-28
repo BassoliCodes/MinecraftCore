@@ -8,12 +8,14 @@ import com.bassolicodes.utils.Config;
 import com.bassolicodes.utils.TextLogger;
 import com.google.common.base.Stopwatch;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.shanerx.mojang.Mojang;
 
 @Getter
 public class MinecraftCore extends JavaPlugin {
 
     public static MinecraftCore instance;
     private final TextLogger textLogger = new TextLogger();
+    Mojang mojang = new Mojang().connect();
     public static Config config;
 
     @Override
@@ -25,6 +27,12 @@ public class MinecraftCore extends JavaPlugin {
             loadConfig();
             instance = this;
             allRecords();
+
+            if (mojang.getStatus(Mojang.ServiceType.AUTHSERVER_MOJANG_COM) != Mojang.ServiceStatus.GREEN) {
+                textLogger.error("O Auth Server da Mojang não está disponível no momento.");
+            }
+
+            textLogger.info("O Auth Server da Mojang foi conectado com sucesso!");
 
             loadTime.stop();
             textLogger.info(String.format("Sucesso! O Plugin foi inicializado com sucesso. (%s)", loadTime));
@@ -80,5 +88,13 @@ public class MinecraftCore extends JavaPlugin {
 
         disableTiming.stop();
         textLogger.info(String.format("O plugin foi encerrado com sucesso. (%s)", disableTiming));
+    }
+
+    public Mojang getMojang() {
+        return mojang;
+    }
+
+    public void setMojang(Mojang mojang) {
+        this.mojang = mojang;
     }
 }
