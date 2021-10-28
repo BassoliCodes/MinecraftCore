@@ -34,6 +34,10 @@ Sistema de /online mostra os jogadores online.
 <img src="https://i.imgur.com/VopkM8a.png" alt="Minecraft Server Status"/><br/>
 <img src="https://i.imgur.com/fRdk1p7.png" alt="Minecraft Server Status"/>
 
+Sistema de /reiniciar mostra os jogadores online.
+<br/>
+<img src="https://i.imgur.com/VdFFicu.png" alt="Minecraft Server Status"/>
+
 Em breve mais...
 
 🥰 Pronto! Projeto totalmente <b>open-source</b> se quiser alterar e baixar fique a vontade, mas sempre deixe os créditos!

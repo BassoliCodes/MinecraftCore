@@ -33,11 +33,11 @@ public class CommandRestart {
             public void run() {
                 tempo--;
                 if (tempo == 119) {
-                    Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_120_Seconds").replace("&", "§"), 120));
+                    Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 120));
                     return;
                 }
                 if (tempo == 59) {
-                    Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_120_Seconds").replace("&", "§"), 60));
+                    Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 60));
                     return;
                 }
                 if (tempo == 9) {
