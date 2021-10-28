@@ -36,4 +36,4 @@ Sistema de /online mostra os jogadores online.
 
 Em breve mais...
 
-🥰 Pronto! Projeto totalmente open-source se quiser alterar e baixar fique a vontade, mas sempre deixe os créditos!
+🥰 Pronto! Projeto totalmente <b>open-source</b> se quiser alterar e baixar fique a vontade, mas sempre deixe os créditos!
