@@ -3,6 +3,7 @@ package com.bassolicodes.events;
 import lombok.val;
 import com.bassolicodes.MinecraftCore;
 import com.bassolicodes.commands.CommandMaintence;
+import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,14 +24,7 @@ public class ServerAndPlayersEvents implements Listener {
 
         event.setJoinMessage(null);
 
-        player.sendMessage(new String[]
-                {
-                        "",
-                        "    §lBEM VINDO AO SERVIDOR!",
-                        "",
-                        " &7Olá " + player.getName() + ", seja bem vindo ao nosso servidor.",
-                        ""
-                });
+        player.playSound(player.getLocation(), Sound.CAT_MEOW, 1f, 1f);
 
         if (CommandMaintence.maintenceStatus) {
             if (!player.hasPermission("core.manutencao")) {
