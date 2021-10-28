@@ -9,6 +9,9 @@ database:
   sqlite:
     file: 'database/database.db'
 
+Restart:
+  Time: 120
+
 Message:
   Gamemode_Change: '&aSeu modo de jogo foi alterado para %s!'
   Gamemode_Change_Player: '&aO modo de jogo de %s foi alterado para %s.'

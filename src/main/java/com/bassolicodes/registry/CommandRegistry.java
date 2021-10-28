@@ -32,7 +32,8 @@ public class CommandRegistry {
                 new CommandClearChat(),
                 new CommandTrash(),
                 new CommandProfile(),
-                new CommandOnline()
+                new CommandOnline(),
+                new CommandRestart()
         );
     }
 }
