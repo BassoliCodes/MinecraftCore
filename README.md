@@ -19,7 +19,11 @@ Sistema de /feed para recarregar a fome de um determinado jogador ou você mesmo
 
 Sistema de /perfil para ver o seu perfil ou o de outro jogador.
 <br/>
-<img src="https://i.imgur.com/FLhemTy.png" alt="Minecraft Server Status"/><br/>
+<img src="https://i.imgur.com/FLhemTy.png" alt="Minecraft Server Status"/>
+
+Sistema de /lixeira para eliminar itens indejados.
+<br/>
+<img src="https://i.imgur.com/gU4khTb.png" alt="Minecraft Server Status"/>
 
 Em breve mais...
 
