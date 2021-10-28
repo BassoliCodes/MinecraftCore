@@ -18,8 +18,7 @@ public class CommandMojang {
         val player = (Player) context.getSender();
 
         player.sendMessage(new String[]{
-                "Olá!",
-                "Tudo bem"
+                "&cAPI em desenvolvimento!"
         });
     }
 }
