@@ -17,6 +17,10 @@ Sistema de /feed para recarregar a fome de um determinado jogador ou você mesmo
 <img src="https://i.imgur.com/oOTBtjr.png" alt="Minecraft Server Status"/><br/>
 <img src="https://i.imgur.com/T6aYM35.png" alt="Minecraft Server Status"/>
 
+Sistema de /perfil para ver o seu perfil ou o de outro jogador.
+<br/>
+<img src="https://i.imgur.com/FLhemTy.png" alt="Minecraft Server Status"/><br/>
+
 Em breve mais...
 
 🥰 Pronto! Projeto totalmente open-source se quiser alterar e baixar fique a vontade, mas sempre deixe os créditos!
