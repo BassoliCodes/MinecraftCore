@@ -16,6 +16,10 @@ public class MinecraftCore extends JavaPlugin {
     private final TextLogger textLogger = new TextLogger();
     public static Config config;
 
+    public static MinecraftCore getInstance() {
+        return instance;
+    }
+
     @Override
     public void onEnable() {
         try {
@@ -46,7 +50,7 @@ public class MinecraftCore extends JavaPlugin {
             textLogger.info(String.format("As informações da configuração fora lidas. (%s)", loadConfigTiming));
         } catch (Throwable e) {
             textLogger.error("Ocorreu um erro ao carregar as configurações!");
-            e.getMessage();
+            textLogger.error(e.getMessage());
         }
     }
 
@@ -64,22 +68,23 @@ public class MinecraftCore extends JavaPlugin {
             textLogger.info(String.format("Eventos registrados foram verificados... [2/2] (%s)", allEventsTiming));
         } catch (Exception e) {
             textLogger.error("Ocorreu um erro com o registro de eventos e comando, verifique!");
-            e.getMessage();
+            textLogger.error(e.getMessage());
         }
-    }
-
-    public static MinecraftCore getInstance() {
-        return instance;
     }
 
     @Override
     public void onDisable() {
-        val disableTiming = Stopwatch.createStarted();
+        try {
+            val disableTiming = Stopwatch.createStarted();
 
-        saveConfig();
+            saveConfig();
 
-        disableTiming.stop();
-        textLogger.info(String.format("O plugin foi encerrado com sucesso. (%s)", disableTiming));
+            disableTiming.stop();
+            textLogger.info(String.format("O plugin foi encerrado com sucesso. (%s)", disableTiming));
+        } catch (Exception e) {
+            textLogger.error("Ocorreu um erro com o registro de eventos e comando, verifique!");
+            textLogger.error(e.getMessage());
+        }
     }
 
 }
