@@ -26,8 +26,6 @@ public class MinecraftCore extends JavaPlugin {
             instance = this;
             allRecords();
 
-            textLogger.info("O Auth Server da Mojang foi conectado com sucesso!");
-
             loadTime.stop();
             textLogger.info(String.format("Sucesso! O Plugin foi inicializado com sucesso. (%s)", loadTime));
         } catch (Exception e) {
