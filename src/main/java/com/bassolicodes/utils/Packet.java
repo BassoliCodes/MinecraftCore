@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class PacketUtils {
+public class Packet {
 
     public static void sendPacket(Player player, Object packet) {
         try {

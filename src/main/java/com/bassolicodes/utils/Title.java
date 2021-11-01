@@ -7,7 +7,7 @@ import java.lang.reflect.Constructor;
 import java.util.Arrays;
 
 
-public class TitleUtils {
+public class Title {
 
     public static void sendTitle(Player player, String message, int fadeIn, int stay, int fadeOut) {
         try {
@@ -35,8 +35,8 @@ public class TitleUtils {
     public static Object[] buildTitlePackets(String message, int fadeIn, int stay, int fadeOut) {
 
         String[] split = message.split("<nl>");
-        String title = ColorUtils.colored(split[0]);
-        String subtitle = ColorUtils.colored(split[1]);
+        String title = Color.colored(split[0]);
+        String subtitle = Color.colored(split[1]);
 
         return new Object[] {
                 buildPacket(title, "TITLE", fadeIn, stay, fadeOut),
@@ -46,28 +46,28 @@ public class TitleUtils {
     }
 
     public static void sendTitlePacket(Player player, Object[] packets) {
-        Arrays.stream(packets).forEach(packet -> PacketUtils.sendPacket(player, packet));
+        Arrays.stream(packets).forEach(packet -> Packet.sendPacket(player, packet));
     }
 
     private static Object buildPacket(String message, String type, int fadeIn, int stay, int fadeOut) {
 
         try {
-            Object component = PacketUtils.getNMSClass("IChatBaseComponent")
+            Object component = Packet.getNMSClass("IChatBaseComponent")
                     .getDeclaredClasses()[0]
                     .getMethod("a", String.class)
                     .invoke(null, "{\"text\":\"" + message + "\"}");
 
-            Constructor constructor = PacketUtils.getNMSClass("PacketPlayOutTitle")
+            Constructor constructor = Packet.getNMSClass("PacketPlayOutTitle")
                     .getConstructor(
-                            PacketUtils.getNMSClass("PacketPlayOutTitle").getDeclaredClasses()[0],
-                            PacketUtils.getNMSClass("IChatBaseComponent"),
+                            Packet.getNMSClass("PacketPlayOutTitle").getDeclaredClasses()[0],
+                            Packet.getNMSClass("IChatBaseComponent"),
                             Integer.TYPE,
                             Integer.TYPE,
                             Integer.TYPE
                     );
 
             Object packet = constructor.newInstance(
-                    PacketUtils.getNMSClass("PacketPlayOutTitle").getDeclaredClasses()[0].getField(type).get(null),
+                    Packet.getNMSClass("PacketPlayOutTitle").getDeclaredClasses()[0].getField(type).get(null),
                     component, fadeIn, stay, fadeOut
             );
 

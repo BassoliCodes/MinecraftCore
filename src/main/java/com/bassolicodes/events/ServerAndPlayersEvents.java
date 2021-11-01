@@ -1,8 +1,7 @@
 package com.bassolicodes.events;
 
 import com.bassolicodes.commands.CommandRestart;
-import com.bassolicodes.utils.Config;
-import com.bassolicodes.utils.TitleUtils;
+import com.bassolicodes.utils.Title;
 import lombok.val;
 import com.bassolicodes.MinecraftCore;
 import com.bassolicodes.commands.CommandMaintence;
@@ -30,7 +29,7 @@ public class ServerAndPlayersEvents implements Listener {
 
         event.setJoinMessage(null);
 
-        TitleUtils.sendTitle(
+        Title.sendTitle(
                 player,
                 config.getString("Message.Join_server.title").replace("&", "§") +
                         "<nl>" +

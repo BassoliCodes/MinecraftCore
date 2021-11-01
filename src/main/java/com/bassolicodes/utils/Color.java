@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class ColorUtils {
+public final class Color {
 
     public static String colored(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
@@ -26,7 +26,7 @@ public final class ColorUtils {
     public static List<String> colored(List<String> description) {
 
         return description.stream()
-                .map(ColorUtils::colored)
+                .map(Color::colored)
                 .collect(Collectors.toList());
 
     }
