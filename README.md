@@ -38,6 +38,7 @@ Sistema de /reiniciar mostra os jogadores online.<br/>
 <b>OBS:</b> Padrão é 120 segundos.
 <br/>
 <img src="https://i.imgur.com/VdFFicu.png" alt="Restart server"/>
+<img src="https://i.imgur.com/vlOtykz.png" alt="Restart server in Title"/>
 
 Em breve mais...
 

@@ -1,6 +1,7 @@
 package com.bassolicodes.commands;
 
 import com.bassolicodes.MinecraftCore;
+import com.bassolicodes.utils.TitleUtils;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
@@ -36,16 +37,19 @@ public class CommandRestart {
             public void run() {
                 tempo--;
                 if (tempo == 119) {
+                    TitleUtils.sendTitleToAll(config.getString("Informations.Server_Name").replace("&", "§") + "<nl>" + String.format(config.getString("Restart.Subtitle").replace("&", "§"), 120), 6, 6, 6);
                     Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 120));
                     return;
                 }
                 if (tempo == 59) {
+                    TitleUtils.sendTitleToAll(config.getString("Informations.Server_Name").replace("&", "§") + "<nl>" + String.format(config.getString("Restart.Subtitle").replace("&", "§"), 120), 6, 6, 6);
                     Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 60));
                     return;
                 }
 
                 if (tempo == 9) {
                     restartActived = true;
+                    TitleUtils.sendTitleToAll(config.getString("Informations.Server_Name").replace("&", "§") + "<nl>" + String.format(config.getString("Restart.Subtitle").replace("&", "§"), 120), 6, 6, 6);
                     Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 10));
                     return;
                 }
