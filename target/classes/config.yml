@@ -12,6 +12,16 @@ database:
 Restart:
   Message_In_Time: '&a&lREINICIO: &fRestam &7%s &fsegundos para o server ser reinicado.'
   Message_Restart_Now: '§a§lREINICIO: §fReiniciando o servídor.'
+  Message_On_Interact_Items:
+    - ''
+    - '&cVocê não pode abrir esses items pois o servidor'
+    - '&cestá reiniciando, aguarde...'
+    - ''
+  Message_On_Interact_Commands:
+    - ''
+    - '&cVocê não pode executar comandos pois o servidor'
+    - '&cestá reiniciando, aguarde...'
+    - ''
 
 Message:
   Gamemode_Change: '&aSeu modo de jogo foi alterado para %s!'
@@ -37,3 +47,6 @@ Message:
   Teleport_Player_Offline: '&cEsse jogador não está online.'
   Teleported_To_Player: '&aVocê foi teleportado até %s, com sucesso!'
   Teleported_To_You: '&aO jogador %s foi teleportado até você.'
+  Join_server:
+    title: "&6&lSEU SERVIDOR"
+    subtitle: "&florem ipsum"

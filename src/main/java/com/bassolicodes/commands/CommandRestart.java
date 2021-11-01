@@ -14,6 +14,9 @@ import java.util.ArrayList;
 
 public class CommandRestart {
 
+
+    public static boolean restartActived = false;
+
     @Command(
             name = "reiniciar",
             permission = "core.restart",
@@ -40,7 +43,9 @@ public class CommandRestart {
                     Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 60));
                     return;
                 }
+
                 if (tempo == 9) {
+                    restartActived = true;
                     Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 10));
                     return;
                 }
@@ -48,7 +53,6 @@ public class CommandRestart {
                     for (Player on : Bukkit.getOnlinePlayers()) {
                         restart.remove(on);
                     }
-
                     Bukkit.broadcastMessage(config.getString("Restart.Message_Restart_Now").replace("&", "§"));
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "restart");
                     return;
