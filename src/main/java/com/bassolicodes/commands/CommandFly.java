@@ -1,14 +1,19 @@
 package com.bassolicodes.commands;
 
+import com.bassolicodes.MinecraftCore;
 import lombok.val;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.annotation.Optional;
 import me.saiintbrisson.minecraft.command.command.Context;
 import me.saiintbrisson.minecraft.command.target.CommandTarget;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 public class CommandFly {
+
+    FileConfiguration config = MinecraftCore.config.getConfig();
+
     @Command(
             name = "fly",
             permission = "core.fly",
@@ -18,25 +23,25 @@ public class CommandFly {
         val player = (Player) context.getSender();
 
         if (player == target) {
-            player.sendMessage("§cVocê podera habilitar o voô de sí mesmo.");
+            player.sendMessage(config.getString("Message.Verification_Fly_Player").replace("&", "§"));
             return;
         }
         if (target == null) {
             if (!player.getAllowFlight()) {
                 player.setAllowFlight(true);
-                player.sendMessage("§aModo de voô habilitado.");
+                player.sendMessage(config.getString("Message.Fly_Enabled").replace("&", "§"));
             } else {
                 player.setAllowFlight(false);
-                player.sendMessage("§cModo de voô desabilitado.");
+                player.sendMessage(config.getString("Message.Fly_Disabled").replace("&", "§"));
             }
         } else if (!target.getAllowFlight()) {
             player.setAllowFlight(true);
-            player.sendMessage("§aModo de voô habilitado de §f" + target.getName() + "§a.");
-            target.sendMessage("§aSeu modo de voô foi habilitado por §f" + player.getName() + "§a.");
+            player.sendMessage(String.format(config.getString("Message.Fly_Enabled_Target").replace("&", "§"), target.getName()));
+            target.sendMessage(String.format(config.getString("Message.Fly_Enabled_Player"), player.getName()));
         } else {
             player.setAllowFlight(false);
-            player.sendMessage("§cModo de voô desabilitado de §f" + target.getName() + "§c.");
-            target.sendMessage("§cSeu modo de voô foi desabilitado por §f" + player.getName() + "§a.");
+            player.sendMessage(String.format(config.getString("Message.Fly_Disabled_Target").replace("&", "§"), target.getName()));
+            target.sendMessage(String.format(config.getString("Message.Fly_Disabled_Player"), player.getName()));
         }
     }
 }
