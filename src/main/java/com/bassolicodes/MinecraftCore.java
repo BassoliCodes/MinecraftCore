@@ -1,5 +1,6 @@
 package com.bassolicodes;
 
+import com.bassolicodes.enums.Version;
 import lombok.val;
 import lombok.Getter;
 import com.bassolicodes.registry.CommandRegistry;
@@ -13,12 +14,37 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class MinecraftCore extends JavaPlugin {
 
     public static MinecraftCore instance;
+    private static Version version;
     private final TextLogger textLogger = new TextLogger();
     public static Config config;
 
     public static MinecraftCore getInstance() {
         return instance;
     }
+
+    public static boolean isVeryNewVersion() {
+        if (version == Version.v1_17)
+            return true;
+        if (version == Version.v1_16_5)
+            return true;
+        if (version == Version.v1_16_4)
+            return true;
+        if (version == Version.v1_16_3)
+            return true;
+        if (version == Version.v1_16_2)
+            return true;
+        if (version == Version.v1_16)
+            return true;
+        if (version == Version.v1_15)
+            return true;
+        if (version == Version.v1_14)
+            return true;
+        if (version == Version.v1_13)
+            return true;
+        return false;
+    }
+
+
 
     @Override
     public void onEnable() {
@@ -85,6 +111,10 @@ public class MinecraftCore extends JavaPlugin {
             textLogger.error("Ocorreu um erro com o registro de eventos e comando, verifique!");
             textLogger.error(e.getMessage());
         }
+    }
+
+    public static Version getVersion() {
+        return version;
     }
 
 }
