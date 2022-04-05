@@ -38,7 +38,7 @@ Message:
   Fly_Disabled_Target: '&cModo de voô desabilitado de &f%s&c.'
   Fly_Enabled_Player: '&aSeu modo de voô foi habilitado por &f%s&a.'
   Fly_Disabled_Player: '&cSeu modo de voô foi desabilitado por &f%s&c.'
-  Verification_Fly_Player: '&cVocê podera habilitar o voô de sí mesmo.'
+  Verification_Fly_Player: '&cVocê não pode habilitar o voô de sí mesmo.'
   No_Permissions: '&cVocê não tem permissão para executar esse comando!'
   Incorect_Target: '&cEsse comando não pode ser executado aqui!'
   Feed_Max: '&cSua fome está cheia.'

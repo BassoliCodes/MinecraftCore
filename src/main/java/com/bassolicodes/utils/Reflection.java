@@ -17,13 +17,11 @@ public final class Reflection {
     private static Field playerConnectionField;
 
     public static void load() {
-        try
-        {
+        try {
             getHandle = getOBClass("entity.CraftPlayer").getMethod("getHandle");
             playerConnectionField = getNMSClass("EntityPlayer").getField("playerConnection");
             sendPacket = getNMSClass("PlayerConnection").getMethod("sendPacket", getNMSClass("Packet"));
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
     }

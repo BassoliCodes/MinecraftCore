@@ -38,7 +38,7 @@ public class Title {
         String title = Color.colored(split[0]);
         String subtitle = Color.colored(split[1]);
 
-        return new Object[] {
+        return new Object[]{
                 buildPacket(title, "TITLE", fadeIn, stay, fadeOut),
                 buildPacket(subtitle, "SUBTITLE", fadeIn, stay, fadeOut)
         };

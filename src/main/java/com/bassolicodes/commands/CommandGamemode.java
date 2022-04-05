@@ -15,13 +15,7 @@ public class CommandGamemode {
 
     FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
-    @Command(
-            name = "gamemode",
-            usage = "gamemode <1,2,3> <player>",
-            aliases = "gm",
-            permission = "core.gm",
-            target = CommandTarget.PLAYER
-    )
+    @Command(name = "gamemode", usage = "gamemode <1,2,3> <player>", aliases = "gm", permission = "core.gm", target = CommandTarget.PLAYER)
 
     public void handleGamemode(Context<CommandSender> context, Integer mode, @Optional Player target) {
 
@@ -32,7 +26,8 @@ public class CommandGamemode {
             player.sendMessage(config.getString("Message.Gamemode_Invalid").replace("&", "§"));
         } else if (player == target) {
             player.sendMessage(config.getString("Message.Gamemode_Same_Player").replace("&", "§"));
-        } if (!player.hasPermission("core.gm.admin")) {
+        }
+        if (!player.hasPermission("core.gm.admin")) {
             player.sendMessage("Você não pode alterar o modo de jogo de outros jogadores.");
         } else if (target == null) {
             player.setGameMode(gameMode);

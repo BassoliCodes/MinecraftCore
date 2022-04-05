@@ -6,9 +6,9 @@ import me.saiintbrisson.minecraft.command.command.Context;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-public class CommandMaintence {
+public class CommandMaintenance {
 
-    public static boolean maintenceStatus = false;
+    public static boolean maintenanceStatus = false;
 
     @Command(
             name = "manutencao",
@@ -16,19 +16,19 @@ public class CommandMaintence {
             permission = "core.manutencao"
     )
 
-    public void handleMaintence(Context<Player> context) {
+    public void handleMaintenance(Context<Player> context) {
         val player = (Player) context.getSender();
 
         for (Player allPlayers : Bukkit.getServer().getOnlinePlayers()) {
 
-            if (!maintenceStatus) {
+            if (!maintenanceStatus) {
 
-                maintenceStatus = true;
+                maintenanceStatus = true;
 
                 if (!allPlayers.hasPermission("core.manutencao")) {
                     allPlayers.kickPlayer("§cServidor entrou em manutenção, avisaremos a volta no discord.");
-                } else if (maintenceStatus) {
-                    maintenceStatus = false;
+                } else if (maintenanceStatus) {
+                    maintenanceStatus = false;
                     player.sendMessage("§cO servidor está em manutenção!");
                 }
             }

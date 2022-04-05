@@ -22,7 +22,7 @@ public class CommandWebsite {
     public void handleWebsite(Context<CommandSender> context) {
         val player = (Player) context.getSender();
 
-        player.sendMessage(new String[] {
+        player.sendMessage(new String[]{
                 "",
                 config.getString("Message.Website").replace("&", "§"),
                 ""

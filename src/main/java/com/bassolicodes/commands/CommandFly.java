@@ -14,16 +14,12 @@ public class CommandFly {
 
     FileConfiguration config = MinecraftCore.config.getConfig();
 
-    @Command(
-            name = "fly",
-            permission = "core.fly",
-            target = CommandTarget.PLAYER
-    )
+    @Command(name = "fly", permission = "core.fly", target = CommandTarget.PLAYER)
     public void handleFly(Context<CommandSender> context, @Optional Player target) {
         val player = (Player) context.getSender();
 
         if (player == target) {
-            player.sendMessage(config.getString("Message.Verification_Fly_Player").replace("&", "§"));
+            player.sendMessage(String.format(config.getString("Message.Verification_Fly_Player").replace("&", "§")));
             return;
         }
         if (target == null) {

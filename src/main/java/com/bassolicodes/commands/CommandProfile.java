@@ -13,46 +13,19 @@ public class CommandProfile {
 
     private Connection connection;
 
-    @Command(
-            name = "perfil",
-            aliases = {"profile", "myinfo"},
-            permission = "core.perfil"
-    )
+    @Command(name = "perfil", aliases = {"profile", "myinfo"}, permission = "core.perfil")
 
     public void handleProfile(Context<CommandSender> context, @Optional Player target) {
         val player = (Player) context.getSender();
 
         if (target == null) {
-            player.sendMessage(
-                    new String[]
-                            {
-                                    "",
-                                    " §lSUAS INFORMAÇÕES",
-                                    "",
-                                    " §aNick: §7" + player.getName(),
-                                    " §aSua fome: §7" + player.getFoodLevel(),
-                                    " §aEstá voando: §7" + (player.isFlying() ? "Sim" : "Não"),
-                                    ""
-                            }
-            );
+            player.sendMessage(new String[]{"", " §lSUAS INFORMAÇÕES", "", " §aNick: §7" + player.getName(), " §aSua fome: §7" + player.getFoodLevel(), " §aEstá voando: §7" + (player.isFlying() ? "Sim" : "Não"), ""});
         } else {
-            player.sendMessage(
-                    new String[]
-                            {
-                                    "",
-                                    " §lINFORMAÇÕES DE " + target.getName().toUpperCase(),
-                                    "",
-                                    " §aNick: §7" + target.getName(),
-                                    " §aSua fome: §7" + target.getFoodLevel(),
-                                    " §aEstá voando: §7" + (target.isFlying() ? "Sim" : "Não"),
-                                    ""
-                            }
-            );
+            player.sendMessage(new String[]{"", " §lINFORMAÇÕES DE " + target.getName().toUpperCase(), "", " §aNick: §7" + target.getName(), " §aSua fome: §7" + target.getFoodLevel(), " §aEstá voando: §7" + (target.isFlying() ? "Sim" : "Não"), ""});
         }
     }
 
     public void getPlayerInformations(String uuid) {
-
 
 
     }

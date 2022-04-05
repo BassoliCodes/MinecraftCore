@@ -14,11 +14,7 @@ public class CommandKickAll {
 
     FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
-    @Command(
-            name = "kickall",
-            permission = "core.kickall",
-            target = CommandTarget.PLAYER
-    )
+    @Command(name = "kickall", permission = "core.kickall", target = CommandTarget.PLAYER)
 
     public void handleKickAll(Context<CommandSender> context) {
         for (Player allPlayers : Bukkit.getServer().getOnlinePlayers()) {

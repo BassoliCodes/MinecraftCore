@@ -4,7 +4,7 @@ import com.bassolicodes.commands.CommandRestart;
 import com.bassolicodes.utils.Title;
 import lombok.val;
 import com.bassolicodes.MinecraftCore;
-import com.bassolicodes.commands.CommandMaintence;
+import com.bassolicodes.commands.CommandMaintenance;
 import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -24,7 +24,7 @@ public class ServerAndPlayersEvents implements Listener {
     FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
     @EventHandler
-    public void onMaintence(PlayerJoinEvent event) {
+    public void onMaintenance(PlayerJoinEvent event) {
         val player = event.getPlayer();
 
         event.setJoinMessage(null);
@@ -38,7 +38,7 @@ public class ServerAndPlayersEvents implements Listener {
         );
 
         player.playSound(player.getLocation(), Sound.CAT_MEOW, 1f, 1f);
-        if (CommandMaintence.maintenceStatus) {
+        if (CommandMaintenance.maintenanceStatus) {
             if (!player.hasPermission("core.manutencao")) {
                 player.kickPlayer("§cVocê não pode entrar com o servidor em manutenção!");
             }
