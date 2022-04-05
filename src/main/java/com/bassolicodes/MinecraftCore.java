@@ -23,7 +23,7 @@ public class MinecraftCore extends JavaPlugin {
     @Override
     public void onEnable() {
         try {
-            textLogger.info("Iniciando o carregamento do plugin.");
+            textLogger.info("Aguarde, iniciando o carregamento do plugin.");
             val loadTime = Stopwatch.createStarted();
 
             loadConfig();
@@ -42,12 +42,12 @@ public class MinecraftCore extends JavaPlugin {
         try {
             val loadConfigTiming = Stopwatch.createStarted();
 
-            textLogger.info("Carregando configurações do plugin!");
+            textLogger.info("Aguarde, carregando configurações do plugin!");
             config = new Config(this, "config.yml");
             saveDefaultConfig();
 
             loadConfigTiming.stop();
-            textLogger.info(String.format("As informações da configuração fora lidas. (%s)", loadConfigTiming));
+            textLogger.info(String.format("Todas as informações de configuração foram lidas com sucesso! (%s)", loadConfigTiming));
         } catch (Throwable e) {
             textLogger.error("Ocorreu um erro ao carregar as configurações!");
             textLogger.error(e.getMessage());
