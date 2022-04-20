@@ -13,6 +13,7 @@ import java.util.logging.Level;
 
 @SuppressWarnings("all")
 public class Config {
+
     private final String fileName;
     static Map<String, Long> map = new HashMap<String, Long>();
     private final JavaPlugin plugin;
@@ -23,15 +24,20 @@ public class Config {
         if (plugin == null) {
             throw new IllegalArgumentException("plugin cannot be null");
         }
+
         if (!plugin.isInitialized()) {
             throw new IllegalArgumentException("plugin must be initialized");
         }
+
         this.plugin = plugin;
         this.fileName = fileName;
+
         File dataFolder = plugin.getDataFolder();
+
         if (dataFolder == null) {
             throw new IllegalStateException();
         }
+
         this.configFile = new File(plugin.getDataFolder(), fileName);
     }
 

@@ -44,8 +44,6 @@ public class MinecraftCore extends JavaPlugin {
         return false;
     }
 
-
-
     @Override
     public void onEnable() {
         try {
