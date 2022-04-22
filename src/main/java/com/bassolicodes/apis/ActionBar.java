@@ -11,13 +11,13 @@ import org.bukkit.entity.Player;
 
 public class ActionBar {
 
-    private static Method a;
+    private static Method method;
     private static Object typeMessage;
     private static Constructor<?> chatConstructor;
 
     public static void sendActionBar(Player player, String message) {
         try {
-            Object chatMessage = a.invoke(null, "{\"text\":\"" + message + "\"}");
+            Object chatMessage = method.invoke(null, "{\"text\":\"" + message + "\"}");
             Object packet = chatConstructor.newInstance(chatMessage, typeMessage);
             Reflection.sendPacket(player, packet);
         } catch (Throwable e) {
@@ -28,7 +28,7 @@ public class ActionBar {
     public static void broadcastActionBar(String message) {
         try
         {
-            Object chatMessage = a.invoke(null, "{\"text\":\"" + message + "\"}");
+            Object chatMessage = method.invoke(null, "{\"text\":\"" + message + "\"}");
             Object packet = chatConstructor.newInstance(chatMessage, typeMessage);
             for (Player player : Bukkit.getOnlinePlayers()) {
                 Reflection.sendPacket(player, packet);
@@ -46,12 +46,12 @@ public class ActionBar {
             Class<?> ppoc = Reflection.getNMSClass("PacketPlayOutChat");
 
             if (icbc.getDeclaredClasses().length > 0) {
-                a = icbc.getDeclaredClasses()[0].getMethod("a", String.class);
+                method = icbc.getDeclaredClasses()[0].getMethod("a", String.class);
             } else {
-                a = Reflection.getNMSClass("ChatSerializer").getMethod("a", String.class);
+                method = Reflection.getNMSClass("ChatSerializer").getMethod("a", String.class);
             }
 
-            if (MinecraftCore.getVersion() == Version.v1_12 || MinecraftCore.isVeryNewVersion()) {
+            if (MinecraftCore.getVersion() == Version.v1_12 || MinecraftCore.isVerifyNewVersion()) {
                 typeMessageClass = Reflection.getNMSClass("ChatMessageType");
                 typeMessage = typeMessageClass.getEnumConstants()[2];
             } else {

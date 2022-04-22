@@ -22,7 +22,7 @@ public class MinecraftCore extends JavaPlugin {
         return instance;
     }
 
-    public static boolean isVeryNewVersion() {
+    public static boolean isVerifyNewVersion() {
         if (version == Version.v1_17)
             return true;
         if (version == Version.v1_16_5)
@@ -104,7 +104,7 @@ public class MinecraftCore extends JavaPlugin {
             saveConfig();
 
             disableTiming.stop();
-            textLogger.info(String.format("O plugin foi encerrado com sucesso. (%s)", disableTiming));
+            textLogger.info(String.format("O plugin foi descarregado com sucesso. (%s)", disableTiming));
         } catch (Exception e) {
             textLogger.error("Ocorreu um erro com o registro de eventos e comando, verifique!");
             textLogger.error(e.getMessage());
