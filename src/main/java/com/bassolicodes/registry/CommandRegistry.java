@@ -15,12 +15,14 @@ public class CommandRegistry {
     FileConfiguration config = MinecraftCore.getInstance().getConfig();
 
     public void register() {
-        BukkitFrame bukkitFrame = new BukkitFrame(plugin);
 
+        BukkitFrame bukkitFrame = new BukkitFrame(plugin);
         MessageHolder message = bukkitFrame.getMessageHolder();
+
         message.setMessage(MessageType.NO_PERMISSION, config.getString("Message.No_Permissions").replace("&", "§"));
         message.setMessage(MessageType.INCORRECT_TARGET, config.getString("Message.Incorect_Target").replace("&", "§"));
         message.setMessage(MessageType.INCORRECT_USAGE, "§cUtlize: /{usage}");
+
         bukkitFrame.registerCommands(
                 new CommandFly(),
                 new CommandGamemode(),
