@@ -12,14 +12,14 @@ import org.bukkit.entity.Player;
 
 public class CommandKickAll {
 
-    FileConfiguration config = MinecraftCore.getInstance().getConfig();
+    FileConfiguration configuration = MinecraftCore.getInstance().getConfig();
 
     @Command(name = "kickall", permission = "core.kickall", target = CommandTarget.PLAYER)
 
     public void handleKickAll(Context<CommandSender> context) {
         for (Player allPlayers : Bukkit.getServer().getOnlinePlayers()) {
             if (!allPlayers.hasPermission("core.kickall")) {
-                allPlayers.kickPlayer(String.format(config.getString("Message.Maintence_Kick").replace("&", "§"), allPlayers.getName()));
+                allPlayers.kickPlayer(String.format(configuration.getString("Message.Maintence_Kick").replace("&", "§"), allPlayers.getName()));
             }
         }
     }

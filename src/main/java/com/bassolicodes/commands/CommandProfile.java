@@ -11,8 +11,6 @@ import java.sql.Connection;
 
 public class CommandProfile {
 
-    private Connection connection;
-
     @Command(name = "perfil", aliases = {"profile", "myinfo"}, permission = "core.perfil")
 
     public void handleProfile(Context<CommandSender> context, @Optional Player target) {
@@ -23,11 +21,6 @@ public class CommandProfile {
         } else {
             player.sendMessage(new String[]{"", " §lINFORMAÇÕES DE " + target.getName().toUpperCase(), "", " §aNick: §7" + target.getName(), " §aSua fome: §7" + target.getFoodLevel(), " §aEstá voando: §7" + (target.isFlying() ? "Sim" : "Não"), ""});
         }
-    }
-
-    public void getPlayerInformations(String uuid) {
-
-
     }
 
 }

@@ -19,18 +19,18 @@ public class CommandTeleportHere {
     )
     public void handleCommand(Context<CommandSender> context, Player target) {
 
-        FileConfiguration config = MinecraftCore.getInstance().getConfig();
+        FileConfiguration configuration = MinecraftCore.getInstance().getConfig();
         val player = (Player) context.getSender();
 
         if (target == player) {
-            player.sendMessage(config.getString("Message.Teleport_To_Yourself").replace("&", "§"));
+            player.sendMessage(configuration.getString("Message.Teleport_To_Yourself").replace("&", "§"));
         } else if (target == null) {
             player.sendMessage("§cEste jogador não está online.");
         } else {
             target.teleport(player.getLocation(), PlayerTeleportEvent.TeleportCause.COMMAND);
-            target.sendMessage(String.format(config.getString("Message.Teleported_To_Player").replace("&", "§"), player.getName()));
+            target.sendMessage(String.format(configuration.getString("Message.Teleported_To_Player").replace("&", "§"), player.getName()));
 
-            player.sendMessage(String.format(config.getString("Message.Teleported_To_You").replace("&", "§"), target.getName()));
+            player.sendMessage(String.format(configuration.getString("Message.Teleported_To_You").replace("&", "§"), target.getName()));
         }
     }
 

@@ -12,32 +12,32 @@ import org.bukkit.entity.Player;
 
 public class CommandFly {
 
-    FileConfiguration config = MinecraftCore.config.getConfig();
+    FileConfiguration configuration = MinecraftCore.config.getConfig();
 
     @Command(name = "fly", permission = "core.fly", target = CommandTarget.PLAYER)
     public void handleFly(Context<CommandSender> context, @Optional Player target) {
         val player = (Player) context.getSender();
 
         if (player == target) {
-            player.sendMessage(String.format(config.getString("Message.Verification_Fly_Player").replace("&", "§")));
+            player.sendMessage(String.format(configuration.getString("Message.Verification_Fly_Player").replace("&", "§")));
             return;
         }
         if (target == null) {
             if (!player.getAllowFlight()) {
                 player.setAllowFlight(true);
-                player.sendMessage(config.getString("Message.Fly_Enabled").replace("&", "§"));
+                player.sendMessage(configuration.getString("Message.Fly_Enabled").replace("&", "§"));
             } else {
                 player.setAllowFlight(false);
-                player.sendMessage(config.getString("Message.Fly_Disabled").replace("&", "§"));
+                player.sendMessage(configuration.getString("Message.Fly_Disabled").replace("&", "§"));
             }
         } else if (!target.getAllowFlight()) {
             player.setAllowFlight(true);
-            player.sendMessage(String.format(config.getString("Message.Fly_Enabled_Target").replace("&", "§"), target.getName()));
-            target.sendMessage(String.format(config.getString("Message.Fly_Enabled_Player"), player.getName()));
+            player.sendMessage(String.format(configuration.getString("Message.Fly_Enabled_Target").replace("&", "§"), target.getName()));
+            target.sendMessage(String.format(configuration.getString("Message.Fly_Enabled_Player"), player.getName()));
         } else {
             player.setAllowFlight(false);
-            player.sendMessage(String.format(config.getString("Message.Fly_Disabled_Target").replace("&", "§"), target.getName()));
-            target.sendMessage(String.format(config.getString("Message.Fly_Disabled_Player"), player.getName()));
+            player.sendMessage(String.format(configuration.getString("Message.Fly_Disabled_Target").replace("&", "§"), target.getName()));
+            target.sendMessage(String.format(configuration.getString("Message.Fly_Disabled_Player"), player.getName()));
         }
     }
 }

@@ -41,6 +41,7 @@ public class CommandRestart {
                     Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 120));
                     return;
                 }
+
                 if (tempo == 59) {
                     Title.sendTitleToAll(config.getString("Informations.Server_Name").replace("&", "§") + "<nl>" + String.format(config.getString("Restart.Subtitle").replace("&", "§"), 120), 6, 6, 6);
                     Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 60));
@@ -53,6 +54,7 @@ public class CommandRestart {
                     Bukkit.broadcastMessage(String.format(config.getString("Restart.Message_In_Time").replace("&", "§"), 10));
                     return;
                 }
+
                 if (tempo == 1) {
                     for (Player on : Bukkit.getOnlinePlayers()) {
                         restart.remove(on);
@@ -61,7 +63,6 @@ public class CommandRestart {
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "restart");
                     return;
                 }
-
             }
         }.runTaskTimer(MinecraftCore.getInstance(), 0L, 20L);
 

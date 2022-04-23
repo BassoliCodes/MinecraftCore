@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 public class CommandGamemode {
 
-    FileConfiguration config = MinecraftCore.getInstance().getConfig();
+    FileConfiguration configuration = MinecraftCore.getInstance().getConfig();
 
     @Command(name = "gamemode", usage = "gamemode <1,2,3> <player>", aliases = "gm", permission = "core.gm", target = CommandTarget.PLAYER)
 
@@ -23,18 +23,18 @@ public class CommandGamemode {
         GameMode gameMode = GameMode.getByValue(mode);
 
         if (gameMode == null) {
-            player.sendMessage(config.getString("Message.Gamemode_Invalid").replace("&", "§"));
+            player.sendMessage(configuration.getString("Message.Gamemode_Invalid").replace("&", "§"));
         } else if (player == target) {
-            player.sendMessage(config.getString("Message.Gamemode_Same_Player").replace("&", "§"));
+            player.sendMessage(configuration.getString("Message.Gamemode_Same_Player").replace("&", "§"));
         }
         if (!player.hasPermission("core.gm.admin")) {
             player.sendMessage("Você não pode alterar o modo de jogo de outros jogadores.");
         } else if (target == null) {
             player.setGameMode(gameMode);
-            player.sendMessage(String.format(config.getString("Message.Gamemode_Change").replace("&", "§"), gameMode.name()));
+            player.sendMessage(String.format(configuration.getString("Message.Gamemode_Change").replace("&", "§"), gameMode.name()));
         } else {
             target.setGameMode(gameMode);
-            target.sendMessage(String.format(config.getString("Message.Gamemode_Change_Player").replace("&", "§"), target.getName(), gameMode.name()));
+            target.sendMessage(String.format(configuration.getString("Message.Gamemode_Change_Player").replace("&", "§"), target.getName(), gameMode.name()));
         }
     }
 }

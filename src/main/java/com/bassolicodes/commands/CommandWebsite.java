@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 public class CommandWebsite {
 
-    FileConfiguration config = MinecraftCore.getInstance().getConfig();
+    FileConfiguration configuration = MinecraftCore.getInstance().getConfig();
 
     @Command(
             name = "site",
@@ -24,7 +24,7 @@ public class CommandWebsite {
 
         player.sendMessage(new String[]{
                 "",
-                config.getString("Message.Website").replace("&", "§"),
+                configuration.getString("Message.Website").replace("&", "§"),
                 ""
         });
     }

@@ -13,7 +13,7 @@ import org.bukkit.inventory.Inventory;
 
 public class CommandTrash {
 
-    FileConfiguration config = MinecraftCore.getInstance().getConfig();
+    FileConfiguration configuration = MinecraftCore.getInstance().getConfig();
 
     @Command(
             name = "lixeira",
@@ -26,7 +26,7 @@ public class CommandTrash {
 
         val player = (Player) context.getSender();
 
-        Inventory inventory = Bukkit.createInventory(player, 36, String.format(config.getString("Message.Trash_Title").replace("&", "§"), player.getName()));
+        Inventory inventory = Bukkit.createInventory(player, 36, String.format(configuration.getString("Message.Trash_Title").replace("&", "§"), player.getName()));
         player.openInventory(inventory);
 
     }

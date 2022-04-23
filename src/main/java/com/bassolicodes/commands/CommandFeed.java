@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 
 public class CommandFeed {
 
-    FileConfiguration config = MinecraftCore.getInstance().getConfig();
+    FileConfiguration configuration = MinecraftCore.getInstance().getConfig();
 
     @Command(
             name = "feed",
@@ -24,17 +24,17 @@ public class CommandFeed {
 
         if (target == null) {
             if (player.getFoodLevel() == 20) {
-                player.sendMessage(config.getString("Message.Feed_Max").replace("&", "§"));
+                player.sendMessage(configuration.getString("Message.Feed_Max").replace("&", "§"));
             } else {
                 player.setFoodLevel(20);
-                player.sendMessage(config.getString("Message.Feed_Satiated").replace("&", "§"));
+                player.sendMessage(configuration.getString("Message.Feed_Satiated").replace("&", "§"));
             }
         } else if (target.getFoodLevel() == 20) {
-            player.sendMessage(config.getString("Message.Feed_Full_Player").replace("&", "§"));
+            player.sendMessage(configuration.getString("Message.Feed_Full_Player").replace("&", "§"));
         } else {
             target.setFoodLevel(20);
-            player.sendMessage(String.format(config.getString("Message.Feed_Regenerated_Player").replace("&", "§"), target.getName()));
-            target.sendMessage(String.format(config.getString("Message.Feed_Regenerated_By_Player").replace("&", "§"), player.getName()));
+            player.sendMessage(String.format(configuration.getString("Message.Feed_Regenerated_Player").replace("&", "§"), target.getName()));
+            target.sendMessage(String.format(configuration.getString("Message.Feed_Regenerated_By_Player").replace("&", "§"), player.getName()));
         }
     }
 }

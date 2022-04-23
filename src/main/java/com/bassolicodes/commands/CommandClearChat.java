@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 public class CommandClearChat {
 
-    FileConfiguration config = MinecraftCore.getInstance().getConfig();
+    FileConfiguration configuration = MinecraftCore.getInstance().getConfig();
 
     @Command(
             name = "limparchat",
@@ -27,7 +27,7 @@ public class CommandClearChat {
 
         String clear = StringUtils.repeat(" §c \n §c ", 100);
         Bukkit.broadcastMessage(clear);
-        Bukkit.broadcastMessage(String.format(config.getString("Message.Clear_Chat").replace("&", "§"), player.getName()));
+        Bukkit.broadcastMessage(String.format(configuration.getString("Message.Clear_Chat").replace("&", "§"), player.getName()));
 
     }
 
